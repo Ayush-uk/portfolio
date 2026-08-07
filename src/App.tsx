@@ -1,122 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import GlobalBackground from "./components/Background";
+import BottomNavBar from "./components/BottomNavBar";
+import TerminalMode from "./terminal/TerminalMode";
+import Hero from "./sections/Hero";
+import About from "./pages/About";
+import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route, Navigate } from "react-router-dom";
+
+const App = () => {
+  const [terminalMode, setTerminalMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("terminal-mode") === "true";
+    }
+    return false;
+  });
+  
+  const [uiType, setUiType] = useState<"landing" | "modular">(() => {
+    if (typeof window !== "undefined") {
+      return (localStorage.getItem("ui-type") as "landing" | "modular") || "landing";
+    }
+    return "landing";
+  });
+
+  const handleTerminalToggle = (value: boolean) => {
+    setTerminalMode(value);
+    localStorage.setItem("terminal-mode", String(value));
+  };
+
+  const [activeTab, setActiveTab] = useState("home");
+
+  const handleUiToggle = (type: "landing" | "modular") => {
+    setUiType(type);
+    localStorage.setItem("ui-type", type);
+  };
+
+  const renderModularUI = () => {
+    switch (activeTab) {
+      case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
+      case "about": return <About />;
+      case "skills": return <Skills />;
+      case "projects": return <Projects />;
+      case "contact": return <Contact />;
+      default: return <Hero uiType={uiType} onTabChange={setActiveTab} />;
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="w-full min-h-screen bg-[#050505] text-white relative">
+      <GlobalBackground />
+      <Navbar
+        terminalMode={terminalMode}
+        setTerminalMode={handleTerminalToggle}
+        uiType={uiType}
+        setUiType={handleUiToggle}
+      />
 
-      <div className="ticks"></div>
+      {!terminalMode ? (
+        <main className="w-full">
+          {uiType === "landing" ? (
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
+                  <section id="about"><About /></section>
+                  <section id="projects"><Projects limit={4} /></section>
+                  <section id="skills"><Skills /></section>
+                  <section id="contact"><Contact /></section>
+                  <BottomNavBar />
+                </>
+              } />
+              <Route path="/projects" element={
+                <div>
+                  <Projects />
+                  <div className="flex justify-center pb-24">
+                    <a href="/" className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all">
+                      ← Back to Home
+                    </a>
+                  </div>
+                </div>
+              } />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          ) : (
+            <div>
+              {renderModularUI()}
+              <BottomNavBar forcedTab={activeTab} setForcedTab={setActiveTab} />
+            </div>
+          )}
+        </main>
+      ) : (
+        <TerminalMode
+          setTerminalMode={handleTerminalToggle}
+          setUiType={handleUiToggle}
+        />
+      )}
+    </div>
+  );
+};
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App
+export default App;
