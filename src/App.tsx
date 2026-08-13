@@ -18,10 +18,12 @@ const App = () => {
     }
     return false;
   });
-  
+
   const [uiType, setUiType] = useState<"landing" | "modular">(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem("ui-type") as "landing" | "modular") || "landing";
+      return (
+        (localStorage.getItem("ui-type") as "landing" | "modular") || "landing"
+      );
     }
     return "landing";
   });
@@ -40,47 +42,70 @@ const App = () => {
 
   const renderModularUI = () => {
     switch (activeTab) {
-      case "home": return <Hero uiType={uiType} onTabChange={setActiveTab} />;
-      case "about": return <About />;
-      case "skills": return <Skills />;
-      case "projects": return <Projects />;
-      case "contact": return <Contact />;
-      default: return <Hero uiType={uiType} onTabChange={setActiveTab} />;
+      case "home":
+        return <Hero uiType={uiType} onTabChange={setActiveTab} />;
+      case "about":
+        return <About />;
+      case "skills":
+        return <Skills />;
+      case "projects":
+        return <Projects />;
+      case "contact":
+        return <Contact />;
+      default:
+        return <Hero uiType={uiType} onTabChange={setActiveTab} />;
     }
   };
 
   return (
     <div className="w-full min-h-screen bg-[#050505] text-white relative">
       <GlobalBackground />
-     <Navbar
-  terminalMode={terminalMode}
-  setTerminalMode={setTerminalMode}
-    />
+      <Navbar terminalMode={terminalMode} setTerminalMode={setTerminalMode} />
 
       {!terminalMode ? (
         <main className="w-full">
           {uiType === "landing" ? (
             <Routes>
-              <Route path="/" element={
-                <>
-                  <section id="home"><Hero uiType={uiType} onTabChange={setActiveTab} /></section>
-                  <section id="about"><About /></section>
-                  <section id="projects"><Projects limit={4} /></section>
-                  <section id="skills"><Skills /></section>
-                  <section id="contact"><Contact /></section>
-                  <BottomNavBar />
-                </>
-              } />
-              <Route path="/projects" element={
-                <div>
-                  <Projects />
-                  <div className="flex justify-center pb-24">
-                    <a href="/" className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all">
-                      ← Back to Home
-                    </a>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <section id="home">
+                      <Hero uiType={uiType} onTabChange={setActiveTab} />
+                    </section>
+                    <section id="about">
+                      <About />
+                    </section>
+                    <section id="projects">
+                      <Projects limit={4} />
+                    </section>
+                    <section id="skills">
+                      <Skills />
+                    </section>
+                    <section id="contact">
+                      <Contact />
+                    </section>
+                    <BottomNavBar />
+                  </>
+                }
+              />
+              <Route path="/projects" element={<Projects />} />
+              <Route
+                path="/projects"
+                element={
+                  <div>
+                    <Projects />
+                    <div className="flex justify-center pb-24">
+                      <a
+                        href="/"
+                        className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all"
+                      >
+                        ← Back to Home
+                      </a>
+                    </div>
                   </div>
-                </div>
-              } />
+                }
+              />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           ) : (
