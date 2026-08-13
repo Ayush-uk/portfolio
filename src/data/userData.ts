@@ -477,5 +477,5 @@ export const projectData = [
 // ===============================
 
 export const resume = {
-  "full-stack-developer": "/public/AyushKumarUkenday_RESUME.pdf",
+  "full-stack-developer": "/AyushKumarUkenday_RESUME.pdf",
 };
