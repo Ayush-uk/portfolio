@@ -34,7 +34,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
     }
     return [];
   });
-  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
+  const [, setHistoryIndex] = useState<number | null>(null);
   const [cursorPos, setCursorPos] = useState(0);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);

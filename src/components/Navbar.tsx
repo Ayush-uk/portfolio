@@ -8,11 +8,9 @@ import { FaGithub } from "react-icons/fa";
 type Props = {
   terminalMode: boolean;
   setTerminalMode: (v: boolean) => void;
-  uiType?: "landing" | "modular";
-  setUiType?: (v: "landing" | "modular") => void;
 };
 
-const Navbar = ({ terminalMode, setTerminalMode, uiType, setUiType }: Props) => {
+const Navbar = ({ terminalMode, setTerminalMode }: Props) => {
   const [stars, setStars] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
 

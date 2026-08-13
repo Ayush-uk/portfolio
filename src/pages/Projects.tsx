@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {  ArrowUpRight } from "lucide-react";
-import { FaGithub ,FaLinkedin} from "react-icons/fa";
+import { FaGithub} from "react-icons/fa";
 import clsx from "clsx";
 import { projectData } from "../data/userData";
 

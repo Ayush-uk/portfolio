@@ -1,13 +1,25 @@
-import React from 'react';
+type XIconProps = {
+  size?: number;
+  color?: string;
+  className?: string;
+  strokeWidth?: number;
+  [key: string]: unknown;
+};
 
-const XIcon = ({ size = 24, color = "currentColor", className, ...props }: any) => {
-  const { strokeWidth, ...rest } = props;
+const XIcon = ({
+  size = 24,
+  color = "currentColor",
+  className,
+  ...props
+}: XIconProps) => {
+  const { strokeWidth: _strokeWidth, ...rest } = props;
+
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 24 24" 
-      fill={color} 
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={color}
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       {...rest}

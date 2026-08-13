@@ -140,7 +140,7 @@ export const getCommandData = (setTerminalMode: (v: boolean) => void): Record<st
   ),
   contact: (
     <>
-      {contactItems.map(({ icon: Icon, label, value, href, color }, index) => (
+    {contactItems.map(({ icon: Icon, value, href, color }, index) => (
         <div key={index} className="flex items-center gap-2">
           <Icon className={color} />
           <span>

@@ -2,13 +2,7 @@ import { Link2Icon } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import XIcon from "../components/XIcon";
 
-import { FaAws } from "react-icons/fa";
-import {
-  SiHuggingface,
-  SiTensorflow,
-  SiPytorch,
-  SiLangchain,
-} from "react-icons/si";
+
 
 export const personalInfo = {
   name: "Ayush Kumar Ukenday",

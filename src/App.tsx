@@ -52,12 +52,10 @@ const App = () => {
   return (
     <div className="w-full min-h-screen bg-[#050505] text-white relative">
       <GlobalBackground />
-      <Navbar
-        terminalMode={terminalMode}
-        setTerminalMode={handleTerminalToggle}
-        uiType={uiType}
-        setUiType={handleUiToggle}
-      />
+     <Navbar
+  terminalMode={terminalMode}
+  setTerminalMode={setTerminalMode}
+    />
 
       {!terminalMode ? (
         <main className="w-full">
