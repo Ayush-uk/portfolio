@@ -4,7 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section
+      id="contact"
+      className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32"
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +30,8 @@ const Contact = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
           >
-            Let's build something great together. I'm always open to new opportunities and collaborations.
+            Let's build something great together. I'm always open to new
+            opportunities and collaborations.
           </motion.p>
         </div>
 
@@ -40,7 +44,8 @@ const Contact = () => {
             className="text-left space-y-4"
           >
             <h3 className="text-3xl md:text-5xl font-black leading-tight text-white tracking-tighter">
-              Let’s build <span className="text-blue-600 text-glow">better</span> products.
+              Let’s build{" "}
+              <span className="text-blue-600 text-glow">better</span> products.
             </h3>
 
             <p className="text-lg md:text-2xl text-zinc-400 font-medium max-w-md leading-relaxed">
@@ -50,7 +55,7 @@ const Contact = () => {
             {/* CTA BUTTONS */}
             <div className="flex flex-wrap gap-2">
               <a
-                href="mailto:ajseven@outlook.in"
+                href="mailto:ayushukenday@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Ayush,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect."
                 className="px-6 py-3.5 rounded-full bg-white text-black font-black text-base transition-all duration-300 hover:bg-zinc-200 hover:-translate-y-1 flex items-center gap-2 group"
               >
                 Start a Conversation
@@ -83,7 +88,10 @@ const Contact = () => {
                   className="group p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 flex items-center gap-5 w-full"
                 >
                   <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-500">
-                    <Icon className="text-zinc-400 group-hover:text-blue-500 transition-colors" size={20} />
+                    <Icon
+                      className="text-zinc-400 group-hover:text-blue-500 transition-colors"
+                      size={20}
+                    />
                   </div>
 
                   <div className="flex-1 flex flex-col items-start text-left">
@@ -97,7 +105,10 @@ const Contact = () => {
 
                   {href && (
                     <div className="text-zinc-600 group-hover:text-white transition-all duration-300">
-                      <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ArrowUpRight
+                        size={20}
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
                     </div>
                   )}
                 </CardComponent>

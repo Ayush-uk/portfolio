@@ -309,6 +309,80 @@ export const contactItems = [
 
 export const projectData = [
   {
+  name: "PostBoy",
+  description:
+    "A modern API testing and collaboration platform for sending REST requests, inspecting responses, testing WebSocket connections, and organizing API workflows in shared workspaces.",
+  tech: [
+    "Next.js",
+    "TypeScript",
+    "WebSockets",
+    "ShadCN",
+    "TailwindCSS",
+    "TanStack",
+    "Zustand",
+    "Monaco Editor",
+  ],
+  live: "https://post-boy-omega.vercel.app/",
+  github: "https://github.com/Ayush-uk/PostBoy",
+  category: "Web",
+},
+  {
+  name: "AI Form Builder",
+  description:
+    "A production-grade multi-tenant SaaS platform for building, publishing, and analyzing forms with a visual drag-and-drop builder, AI-powered form generation, conditional logic, real-time collaboration, and role-based workspace management.",
+  tech: [
+    "Next.js 15",
+    "React 19",
+    "Node.js",
+    "Express",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Redis",
+    "BullMQ",
+    "Socket.IO",
+    "GraphQL",
+    "JWT",
+    "RBAC",
+    "Docker",
+    "GitHub Actions",
+    "Tailwind CSS",
+    "Radix UI",
+    "TanStack Query",
+    "Zustand",
+    "React Hook Form",
+    "Zod",
+    "React Flow",
+    "Framer Motion",
+    "Recharts",
+  ],
+  live: "",
+  github: "",
+  category: "Web",
+},
+{
+  name: "LeetCode",
+  description:
+    "A full-stack competitive programming platform for solving coding problems, executing submissions through Judge0, tracking submission history, and organizing problems into playlists, with role-based access and user profiles.",
+  tech: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+    "Shadcn/ui",
+    "Prisma",
+    "PostgreSQL",
+    "Docker",
+    "Clerk",
+    "GitHub OAuth",
+    "Judge0",
+    "Server Actions",
+  ],
+  live: "",
+  github: "https://github.com/Ayush-uk/leetcode",
+  category: "Web",
+},
+  {
     name: "MockMate",
     description:
       "AI-powered interview platform that simulates technical and HR interviews, evaluates responses, and provides personalized feedback.",
@@ -322,26 +396,36 @@ export const projectData = [
       "GenAI",
     ],
     live: "",
-    github: "",
+    github: "https://github.com/Ayush-uk/MockMate",
     category: "AI",
   },
 
+  
   {
-    name: "DSA Platform",
-    description:
-      "Interactive coding platform for solving Data Structures and Algorithms problems with online code execution and automated evaluation.",
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Judge0",
-      "PostgreSQL",
-    ],
-    live: "",
-    github: "",
-    category: "Web",
-  },
+  name: "V0 Clone",
+  description:
+    "An AI-powered application builder that enables users to create and manage Next.js projects through AI agents, sandboxed execution, persistent conversations, file exploration, and automated project workflows.",
+  tech: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+    "Shadcn/ui",
+    "Prisma",
+    "PostgreSQL",
+    "Docker",
+    "Clerk",
+    "GitHub OAuth",
+    "Google OAuth",
+    "Inngest",
+    "E2B Sandboxes",
+    "AI Agents",
+    "Server Actions",
+  ],
+  live: "",
+  github: "https://github.com/Ayush-uk/V0",
+  category: "AI",
+},
 
   {
     name: "MedicalOS",
@@ -370,44 +454,10 @@ export const projectData = [
       "REST API",
       "JavaScript",
     ],
-    live: "",
+    live: "https://vastu.awhbharat.org/",
     github: "",
     category: "Web",
   },
-
-  {
-    name: "AI-Hub",
-    description:
-      "Multi-model AI assistant designed for interacting with AI models and experimenting with AI-powered productivity workflows.",
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Shadcn",
-      "Tauri",
-    ],
-    live: "https://ai-hubx.vercel.app/",
-    github: "https://github.com/aj-seven/ai-hub",
-    category: "AI",
-  },
-
-  {
-    name: "Done Today",
-    description:
-      "A productivity application designed to help users track their daily accomplishments and maintain consistent progress.",
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "MongoDB",
-    ],
-    live: "https://done-today.vercel.app",
-    github: "https://github.com/donetoday-app/donetoday",
-    category: "Web",
-  },
-
   {
     name: "Trading Simulator",
     description:
@@ -420,37 +470,11 @@ export const projectData = [
       "REST API",
     ],
     live: "",
-    github: "",
+    github: "https://github.com/Ayush-uk/stocks-trading-platform",
     category: "Web",
   },
 
-  {
-    name: "PostalMapper",
-    description:
-      "Digital address card generator based on postal codes with QR-code support and export functionality.",
-    tech: [
-      "React",
-      "TailwindCSS",
-      "QRCode",
-    ],
-    live: "https://postal-mapper.vercel.app",
-    github: "https://github.com/aj-seven/postal-mapper",
-    category: "Web",
-  },
-
-  {
-    name: "Sketchify",
-    description:
-      "Image processing web application that converts images into sketches with adjustable visual effects.",
-    tech: [
-      "React",
-      "TailwindCSS",
-      "Canvas",
-    ],
-    live: "https://sketchify-app.vercel.app",
-    github: "https://github.com/aj-seven/sketchify",
-    category: "Web",
-  },
+  
 ];
 
 
@@ -459,6 +483,5 @@ export const projectData = [
 // ===============================
 
 export const resume = {
-  "full-stack-developer":
-    "https://rxresu.me/aj-seven/full-stack-developer",
+  "full-stack-developer": "/public/AyushKumarUkenday_RESUME.pdf",
 };
