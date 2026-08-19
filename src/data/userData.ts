@@ -302,6 +302,25 @@ export const contactItems = [
 // ===============================
 
 export const projectData = [
+    {
+    name: "Orbital CLI",
+    description:
+      "An AI-powered developer CLI that brings intelligent conversations, AI agents, and tool-based workflows directly to the terminal, with secure GitHub authentication and persistent cloud-backed conversations.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Better Auth",
+      "Prisma",
+      "PostgreSQL",
+      "Google Gemini",
+      "AI SDK",
+    ],
+    live: "https://orbital-cli-eight.vercel.app/",
+    github: "https://github.com/Ayush-uk/Orbital_Cli",
+    category: "AI",
+  },
   {
   name: "PostBoy",
   description:
