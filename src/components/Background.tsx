@@ -1,23 +1,14 @@
 const GlobalBackground = () => {
   return (
-    <div className="fixed inset-0 z-0 bg-[#050505] pointer-events-none overflow-hidden">
-      {/* Technical Grid Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
-        style={{ 
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-          backgroundSize: '40px 40px' 
-        }} 
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[var(--background)]" aria-hidden="true">
+      <div
+        className="absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage: "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
       />
-      
-      {/* Central Atmosphere Glow */}
-      <div className="absolute top-1/2 left-1/2 w-[60%] h-[60%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow" />
-      
-      {/* Radial Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/40 to-black opacity-90" />
-      
-      {/* Noise Texture */}
-      <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(37,99,235,0.08),transparent_45%),linear-gradient(to_bottom,transparent_0%,#0a0a0a_85%)]" />
     </div>
   );
 };

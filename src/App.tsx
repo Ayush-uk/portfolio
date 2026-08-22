@@ -58,7 +58,7 @@ const App = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#050505] text-white relative">
+    <div className="relative min-h-screen w-full bg-[var(--background)] text-[var(--foreground)]">
       <GlobalBackground />
       <Navbar terminalMode={terminalMode} setTerminalMode={setTerminalMode} />
 
@@ -89,18 +89,14 @@ const App = () => {
                   </>
                 }
               />
-              <Route path="/projects" element={<Projects />} />
               <Route
                 path="/projects"
                 element={
                   <div>
                     <Projects />
-                    <div className="flex justify-center pb-24">
-                      <a
-                        href="/"
-                        className="px-8 py-4 rounded-full border border-white/10 text-zinc-400 font-bold hover:bg-white/5 hover:text-white transition-all"
-                      >
-                        ← Back to Home
+                    <div className="flex justify-center px-5 pb-24">
+                      <a href="/" className="border border-[var(--border)] px-6 py-3 text-sm font-semibold text-[var(--foreground-subtle)] transition hover:border-blue-500/60 hover:text-white">
+                        ← Back to home
                       </a>
                     </div>
                   </div>
