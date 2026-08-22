@@ -196,11 +196,17 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
     <div
       onClick={handleContainerClick}
       className={clsx(
-        "relative h-dvh flex flex-col px-2 py-20 md:py-20 md:px-12 font-mono overflow-hidden transition-colors duration-500",
+        "relative h-dvh flex flex-col overflow-hidden bg-[#08090b] px-3 py-4 font-mono text-[13px] transition-colors duration-500 sm:px-6 sm:py-6 md:px-10",
         currentTheme.bg,
         currentTheme.text
       )}
     >
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between border border-[#252a34] bg-[#11141a] px-4 py-3 text-[10px] uppercase tracking-[0.18em] text-[#858b98] shadow-2xl">
+        <div className="flex items-center gap-2"><span className="size-2 rounded-full bg-[#ef4444]" /><span className="size-2 rounded-full bg-[#eab308]" /><span className="size-2 rounded-full bg-[#22c55e]" /></div>
+        <span className="hidden sm:block">ayush@terminal · interactive portfolio shell</span>
+        <span className="text-[#6ee7b7]">online</span>
+      </div>
+      <div className="relative z-10 mx-auto mt-3 flex w-full max-w-6xl flex-1 overflow-hidden border border-[#252a34] bg-[#0d1015] shadow-2xl">
       {glow && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute -inset-20 bg-green-400 opacity-10 blur-3xl rounded-full" />
@@ -209,7 +215,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
 
       <div
         ref={terminalRef}
-        className="z-10 relative flex-1 overflow-y-auto whitespace-pre-wrap space-y-2 pr-1"
+        className="z-10 relative flex-1 overflow-y-auto whitespace-pre-wrap space-y-3 p-4 pr-2 sm:p-6"
       >
         {history.map((line, i) => (
           <div
@@ -229,14 +235,14 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
             e.preventDefault();
             handleCommand(input);
           }}
-          className="flex items-center mb-4"
+          className="sticky bottom-0 -mx-4 -mb-4 flex items-center border-t border-[#252a34] bg-[#11141a] px-4 py-4 sm:-mx-6 sm:-mb-6 sm:px-6"
         >
           <span className="pr-2 text-green-300">ayush@terminal:~$</span>
           <div className="relative flex-1 min-h-[1.5rem]">
             {/* Visual block cursor and text */}
             <div className="absolute inset-0 pointer-events-none flex items-center whitespace-pre">
               <span>{input.slice(0, cursorPos)}</span>
-              <span className="bg-red-500 text-black animate-[pulse_1s_step-end_infinite] inline-block text-center shadow-sm" style={{ minWidth: "0.7em" }}>
+              <span className="inline-block min-w-[0.7em] bg-[#4f7cff] text-[#08090b] text-center shadow-sm animate-[pulse_1s_step-end_infinite]" style={{ minWidth: "0.7em" }}>
                 {input.slice(cursorPos, cursorPos + 1) || " "}
               </span>
               <span>{input.slice(cursorPos + 1)}</span>
@@ -304,6 +310,7 @@ const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
             />
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
